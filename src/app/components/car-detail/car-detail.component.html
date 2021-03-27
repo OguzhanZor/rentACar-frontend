@@ -1,23 +1,29 @@
-<div *ngIf="dataLoaded==false" class="spinner-border text-info" role="status">
-    <span class="visually-hidden">Loading...</span>
+<div *ngIf="dataLoaded == false" class="spinner-border text-info" role="status">
+  <span class="visually-hidden">Loading...</span>
 </div>
-<table *ngIf="dataLoaded==true" class="table"> 
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Model Yılı</th>
-            <th>Marka</th>
-            <th>Renk</th>
-            <th>Günlük ücret</th>
-            <th>Açıklama</th>
-        </tr>
-    </thead>
-    <tr *ngFor="let cardetail of carDetails">
-        <td>{{cardetail.id}}</td>
-        <td>{{cardetail.modelYear}}</td>
-        <td>{{cardetail.brandName}}</td>
-        <td>{{cardetail.colorName}}</td>
-        <td>{{cardetail.dailyPrice}}</td>
-        <td>{{cardetail.description}}</td>
+<table *ngIf="dataLoaded == true" class="table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Model Yılı</th>
+      <th>Marka</th>
+      <th>Renk</th>
+      <th>Günlük ücret</th>
+      <th>Açıklama</th>
     </tr>
+  </thead>
+  <tr *ngFor="let cardetail of carDetails">
+    <td>{{ cardetail.id }}</td>
+    <td>{{ cardetail.modelYear }}</td>
+    <td>{{ cardetail.brandName }}</td>
+    <td>{{ cardetail.colorName }}</td>
+    <td>{{ cardetail.dailyPrice }}</td>
+    <td>{{ cardetail.description }}</td>
+  </tr>
 </table>
+<br>
+<br>
+<div class="row" *ngFor="let cardetail2 of carDetails">
+<div class="col-md-2" *ngFor="let carImage of carImages">
+<img src="https://localhost:44306/{{carImage.imagePath}}"height="100" width="100" alt="{{cardetail2.brandName}}  {{carImage.date}}">
+</div></div>

@@ -1,14 +1,14 @@
 <div *ngIf="dataLoaded==false" class="spinner-border text-info" role="status">
     <span class="visually-hidden">Loading...</span>
 </div>
-<table *ngIf="dataLoaded==true" class="table"> 
+<table  *ngIf="dataLoaded==true" class="table"> 
     <thead>
         <tr>
             <th>Id</th>
             <th>Car Id</th>
             <th>Müşteri Id</th>
             <th>Kiralam Tarihi</th>
-            <th>Geri Dönüş Tarihi</th>
+            <th style="font-family: 'Arial';">Geri Dönüş Tarihi</th>
         </tr>
     </thead>
     <tr *ngFor="let rental of rentals">

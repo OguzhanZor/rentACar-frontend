@@ -10,17 +10,25 @@ import { CarDetailDto } from 'src/app/models/Dtos/carDetailDto';
 })
 export class CarService {
 
-  apiUrl="https://localhost:44306/api/cars/";
+  apiUrl="https://localhost:44306/api/";
 
   constructor(private httpClient:HttpClient) { }
 
   getCars() : Observable<ListResponseModel<Car>>{
-    let request:string =this.apiUrl+"getall";
+    let request:string =this.apiUrl+"cars/getall";
     return this.httpClient.get<ListResponseModel<Car>>(request);
   }
 
-  getCarsDetail():Observable<ListResponseModel<CarDetailDto>>{
-    let request: string =this.apiUrl+"GetCarDetails";
+  getCarsDetail(carId:number):Observable<ListResponseModel<CarDetailDto>>{
+    let request: string =this.apiUrl+"cars/getcardetails?carId="+carId;
+    return this.httpClient.get<ListResponseModel<CarDetailDto>>(request);
+  }
+  getCarsByBrandId(brandId:number):Observable<ListResponseModel<CarDetailDto>>{
+    let request: string =this.apiUrl+"cars/getbybrandid?brandId="+brandId;
+    return this.httpClient.get<ListResponseModel<CarDetailDto>>(request);
+  }
+  getCarsByColorId(colorId:number):Observable<ListResponseModel<CarDetailDto>>{
+    let request: string =this.apiUrl+"cars/getbycolorid?colorId="+colorId;
     return this.httpClient.get<ListResponseModel<CarDetailDto>>(request);
   }
 }
